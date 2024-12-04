@@ -1,0 +1,25 @@
+name: esptool as a pio tool
+
+on: push
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install --upgrade platformio
+
+      - name: Build firmware
+        run: pio pkg exec --package "platformio/tool-esptoolpy" -- esptool --chip esp32 merge_bin --output output.bin 0x1000 test1.bin 0x2000 test2.bin
