@@ -21,4 +21,4 @@ jobs:
       - run: pip install esptool
 
       - name: Build firmware
-        run: python -m esptool --chip esp32 merge_bin --output output.bin 0x1000 test1.bin 0x2000 test2.bin
+        run: python -m esptool version

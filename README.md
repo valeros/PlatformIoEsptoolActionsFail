@@ -1,10 +1,10 @@
-# PlatformIO `esptool` fail on `merge_bin` operation in Github Actions
+# PlatformIO `tool-esptoolpy` fails in Github Actions
 
-This repo demonstrates an issue with the invocation of `merge_bin` command using `platformio/tool-esptoolpy` as a pio tool when running in Github Actions runner. A `UserSideException: [Errno 13] Permission denied: 'esptool'` is produced. The error appears on both Windows and Ubuntu.
+This repo demonstrates an issue with the invocation of `esptool` using `platformio/tool-esptoolpy` as a pio tool when running in Github Actions runner. A `UserSideException: [Errno 13] Permission denied: 'esptool'` is produced. The error appears on both Windows and Ubuntu.
 
 Extract of the logs from the failed Github Actions run on Ubuntu (check the [Actions tab](/actions) for the full logs):
 
-> `Run pio pkg exec --package "platformio/tool-esptoolpy" -- esptool --chip esp32 merge_bin --output output.bin 0x1000 test1.bin 0x2000 test2.bin`
+> `Run pio pkg exec --package "platformio/tool-esptoolpy" -- esptool version`
 >
 > `Tool Manager: Installing platformio/tool-esptoolpy`
 >
@@ -20,4 +20,4 @@ Extract of the logs from the failed Github Actions run on Ubuntu (check the [Act
 >
 > `Error: Process completed with exit code 1.`
 
-Calling the same command `merge_bin` through `python -m esptool` works.
+Calling the same command `version` through `python -m esptool` works.

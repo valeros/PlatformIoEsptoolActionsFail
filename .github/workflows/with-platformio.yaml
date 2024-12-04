@@ -22,4 +22,4 @@ jobs:
       - run: pip install --upgrade platformio
 
       - name: Build firmware
-        run: pio pkg exec --package "platformio/tool-esptoolpy" -- esptool --chip esp32 merge_bin --output output.bin 0x1000 test1.bin 0x2000 test2.bin
+        run: pio pkg exec --package "platformio/tool-esptoolpy" -- esptool version
