@@ -19,7 +19,9 @@ jobs:
         with:
           python-version: '3.12'
 
-      - run: pip install --upgrade platformio
+      - run: |
+         wget -O get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
+         python3 get-platformio.py
 
       - name: Build firmware
-        run: /opt/hostedtoolcache/Python/3.12.7/x64/bin/pio pkg exec --package "platformio/tool-esptoolpy" -- esptool version
+        run: ~/.platformio/penv/bin/pio pkg exec --package "platformio/tool-esptoolpy" -- esptool version
