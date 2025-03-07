@@ -23,5 +23,8 @@ jobs:
          wget -O get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
          python3 get-platformio.py
 
+      - name: Install intelhex dependency
+        run: ~/.platformio/penv/bin/python -m pip install intelhex
+      
       - name: Build firmware1
         run: ~/.platformio/penv/bin/pio pkg exec --package "platformio/tool-esptoolpy" -- esptool.py version
