@@ -24,4 +24,4 @@ jobs:
          python3 get-platformio.py
 
       - name: Build firmware1
-        run: ~/.platformio/penv/bin/pio pkg exec --package "platformio/tool-esptoolpy" -- esptool version
+        run: ~/.platformio/penv/bin/pio pkg exec --package "platformio/tool-esptoolpy" -- esptool.py version
